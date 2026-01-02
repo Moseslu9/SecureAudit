@@ -18,12 +18,12 @@ export default function Home() {
         <span className="text-xl font-bold">SecureAudit</span>
       </div>
       <div className="flex items-center space-x-6">
-        <Link href="#features" className="text-gray-300 hover:text-white transition">Features</Link>
-        <Link href="/login" className="text-gray-300 hover:text-white transition">Log In</Link>
-        <Button asChild>
-          <Link href="/signup">Get Started</Link>
-        </Button>
-      </div>
+  <Link href="#features" className="text-gray-300 hover:text-white transition">Features</Link>
+  <Link href="/login" className="text-gray-300 hover:text-white transition">Log In</Link>
+  <Button asChild className="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-semibold">
+    <Link href="/signup">Get Started</Link>
+  </Button>
+</div>
     </div>
   </div>
 </nav>
