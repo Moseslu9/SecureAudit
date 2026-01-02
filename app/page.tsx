@@ -2,29 +2,31 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 //import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
+
 import { Shield, Zap, CheckCircle, ArrowRight, Lock } from "lucide-react";
 
 export default function Home() {
   return (
     <>
-      {/* Navbar */}
-      <nav className="border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <Shield className="h-8 w-8 text-cyan-500" />
-              <span className="text-xl font-bold">SecureAudit</span>
-            </div>
-            <div className="flex items-center space-x-6">
-              <a href="#features" className="text-gray-300 hover:text-white transition">Features</a>
-              <a href="#pricing" className="text-gray-300 hover:text-white transition">Pricing</a>
-              <Button variant="outline" className="border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-gray-900">
-                Sign In
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+     {/* Updated Navbar */}
+<nav className="border-b border-gray-800">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-16">
+      <div className="flex items-center space-x-3">
+        <Shield className="h-8 w-8 text-cyan-500" />
+        <span className="text-xl font-bold">SecureAudit</span>
+      </div>
+      <div className="flex items-center space-x-6">
+        <Link href="#features" className="text-gray-300 hover:text-white transition">Features</Link>
+        <Link href="/login" className="text-gray-300 hover:text-white transition">Log In</Link>
+        <Button asChild>
+          <Link href="/signup">Get Started</Link>
+        </Button>
+      </div>
+    </div>
+  </div>
+</nav>
 
       {/* Hero Section */}
       <section className="pt-20 pb-32 px-4">
