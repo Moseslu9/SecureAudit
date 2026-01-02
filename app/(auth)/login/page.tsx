@@ -13,7 +13,7 @@ export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setErrorMsg("");
@@ -22,10 +22,7 @@ export default function Login() {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
       setErrorMsg(error.message);
@@ -47,25 +44,21 @@ export default function Login() {
           </p>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div>
-            <Input
-              name="email"
-              type="email"
-              placeholder="you@company.com"
-              required
-              className="bg-gray-700 border-gray-600"
-            />
-          </div>
-          <div>
-            <Input
-              name="password"
-              type="password"
-              placeholder="Your password"
-              required
-              className="bg-gray-700 border-gray-600"
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <Input
+            name="email"
+            type="email"
+            placeholder="you@company.com"
+            required
+            className="bg-gray-700 border-gray-600"
+          />
+          <Input
+            name="password"
+            type="password"
+            placeholder="Your password"
+            required
+            className="bg-gray-700 border-gray-600"
+          />
           <Button
             type="submit"
             disabled={loading}
@@ -76,10 +69,7 @@ export default function Login() {
         </form>
 
         <p className="text-center text-gray-400 mt-6">
-          No account?{" "}
-          <Link href="/signup" className="text-cyan-500 hover:underline">
-            Sign up
-          </Link>
+          No account? <Link href="/signup" className="text-cyan-500 hover:underline">Sign up</Link>
         </p>
       </Card>
     </div>
